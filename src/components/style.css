@@ -19,3 +19,12 @@ nav > li {
 .nav > li:hover {
   color: turquoise;
 }
+.products {
+  width: 15%;
+  padding: 10px;
+
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
