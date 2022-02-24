@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import faker from "@faker-js/faker";
 import SingleProduct from "./SingleProduct";
+import { CartContext } from "../Context";
+
 faker.seed(100);
 const Home = ({}) => {
-  const { cart, setCart } = useContext(cartContext);
+  const { cart } = useContext(CartContext);
 
   const productArray = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
@@ -17,12 +19,7 @@ const Home = ({}) => {
     <div>
       <nav>Home</nav>
       {products.map((prod) => (
-        <SingleProduct
-          prod={prod}
-          key={prod.id}
-          cart={cart}
-          setCart={setCart}
-        />
+        <SingleProduct prod={prod} key={prod.id} />
       ))}
     </div>
   );
