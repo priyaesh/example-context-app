@@ -9,7 +9,7 @@ const Header = () => {
         <h3>Example of Context App</h3>
         <ul className="nav">
           <li>
-            <Link to="/">Home Page</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/cart">Cart</Link>

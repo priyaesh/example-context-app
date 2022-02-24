@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SingleProduct from "./SingleProduct";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({}) => {
   const [total, setTotal] = useState();
+  const { cart } = useContext(cartContext);
   useEffect(() => {
     setTotal(cart.reduce((a, c) => a + Number(c.price), 0));
   }, [cart]);
@@ -14,12 +15,7 @@ const Cart = ({ cart, setCart }) => {
 
       <div>
         {cart.map((prod) => (
-          <SingleProduct
-            prod={prod}
-            key={prod.id}
-            cart={cart}
-            setCart={setCart}
-          />
+          <SingleProduct prod={prod} key={prod.id} />
         ))}
       </div>
     </div>

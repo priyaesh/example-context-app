@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const SingleProduct = ({ prod, cart, setCart }) => {
+const SingleProduct = ({ prod }) => {
+  const { cart, setCart } = useContext(cartContext);
   return (
     <div className="products">
       <img src={prod.image} alt={prod.name}></img>
