@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SingleProduct = ({ prod }) => {
+const SingleProduct = ({ prod, cart, setCart }) => {
   return (
     <div className="products">
       <img src={prod.image} alt={prod.name}></img>
-      <button>Add to Cart</button>
-      <button>Remove from Cart</button>
+      <div className="productDesc">
+        <span>{prod.name}</span>
+        <span>${prod.price}</span>
+      </div>
+      {cart.includes(prod) ? (
+        <div>
+          <button
+            onClick={() => {
+              setCart(cart.filter((c) => c.id !== prod.id));
+            }}
+          >
+            Delete
+          </button>
+        </div>
+      ) : (
+        <div>
+          <button
+            onClick={() => {
+              setCart([...cart, prod]);
+            }}
+          >
+            Add to Cart
+          </button>
+        </div>
+      )}
     </div>
   );
 };
